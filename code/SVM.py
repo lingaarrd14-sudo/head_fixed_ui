@@ -5,7 +5,7 @@ from sklearn.svm import SVC
 from sklearn.pipeline import Pipeline
 from sklearn.metrics import classification_report, confusion_matrix
 import os
-dir=
+
 os.makedirs(os.path.dirname(dir), exist_ok=True)
 
 # ---------------------------------------------------------
