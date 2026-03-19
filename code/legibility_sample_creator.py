@@ -9,24 +9,23 @@ def generate_vr_legibility_data(n_samples=500, folder=parent_dir, filename="vr_l
     np.random.seed(42)
     
     # 1. Feature 생성: 좌표(-1.0 ~ 1.0 정규화), 크기(0.01 ~ 0.15 비율)
-    x_coords = np.random.uniform(-960, 960, n_samples)
+    x_coords = np.random.uniform(-1429, 1429, n_samples)
     y_coords = np.random.uniform(-540, 540, n_samples)
-    widths = np.random.uniform(5, 200, n_samples)
-    heights = widths
+    widths = np.random.uniform(0, 400, n_samples)
+    heights = widths + np.random.uniform(-2, 2, n_samples)
     
     # 2. 중심으로부터의 거리 계산 (유클리디안 거리)
     distances = np.sqrt(x_coords**2 + y_coords**2)
-    
-    labels = []
-    for d, w, h in zip(distances, widths, heights):
-        area = w * h
-        # 거리가 멀어질수록 가독성에 필요한 최소 면적(threshold)이 증가
-        threshold = 0.002 + (d * 0.005) 
-        
-        if area > threshold:
-            labels.append(1)
-        else:
-            labels.append(0)
+    areas = widths * heights
+
+    # 🚨 수정된 Threshold 공식 (예시)
+    # 거리가 멀어질수록 요구되는 최소 면적이 크게 증가하도록 스케일업!
+    # 예: 거리 0일때 요구면적 2000 -> 거리 700일때 요구면적 23000 (2000 + 700*20)
+    thresholds = 1500 + (distances * 20)
+
+    # 3. Labeling (for문 없이 한 번에 처리!)
+    # 조건: 면적이 임계값을 넘고(&) 거리가 700 미만인 경우만 1, 나머진 0
+    labels = np.where((areas > thresholds) & (distances < 700), 1, 0)
             
     # 3. 데이터 현실성을 위한 노이즈 추가 (10% 라벨 반전)
     noise_indices = np.random.choice(n_samples, size=int(n_samples * 0.1), replace=False)
