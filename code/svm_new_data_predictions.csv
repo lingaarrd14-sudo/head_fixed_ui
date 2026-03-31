@@ -1,4 +1,4 @@
-Yaw,Pitch,FontSize,Label,Prediction,Probability
+x_theta,y_theta,TextSize,Label,Prediction,Probability
 -37.97,38.91,122.9,1,1,0.9450984863645652
 19.42,29.49,201.0,0,0,0.011020913274305589
 29.65,28.99,6.5,1,1,0.8948604029193615

@@ -10,7 +10,7 @@ y_range = range(-53, 44)
 combinations = list(itertools.product(x_range, y_range))
 
 # 데이터프레임 변환 및 저장
-df = pd.DataFrame(combinations, columns=['Yaw', 'Pitch'])
+df = pd.DataFrame(combinations, columns=['x_theta', 'y_theta'])
 df.to_csv(os.path.join('..', 'coordinates.csv'), index=False)
 
 print(f"총 {len(df)}개의 행을 가진 CSV 파일이 생성되었습니다.")

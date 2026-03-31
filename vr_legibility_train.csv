@@ -1,4 +1,4 @@
-Section,GlobalIndex,LocalIndex,TargetChar,Yaw,Pitch,UserInput,IsCorrect,FontSize,SpawnZone,,Label,,,,,,,,,,,
+Section,GlobalIndex,LocalIndex,TargetChar,x_theta,y_theta,UserInput,IsCorrect,TextSize,SpawnZone,,Label,,,,,,,,,,,
 1,1,1,L,-37.97,38.91,NotVisible,FALSE,122.9,Grid_Top-Left,,1,,,,,,,,,,,
 1,2,2,D,19.42,29.49,D,TRUE,201,Grid_Top-Center,,0,,,,,,,,,,,
 1,3,3,C,29.65,28.99,NotVisible,FALSE,6.5,Grid_Top-Right,,1,,,,,,,,,,,

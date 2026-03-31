@@ -1,4 +1,4 @@
-Yaw,Pitch,Prediction,Probability
+x_theta,y_theta,Prediction,Probability
 -55,-53,1,0.9971203747179562
 -55,-52,1,0.9967784719958409
 -55,-51,1,0.9964059662336303
